@@ -3,6 +3,8 @@ import { DishesService } from './dishes.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Dish, DishSchema } from './entities/dish.entity';
 
+// Note: Integration Test => Middleweight, slower, involves external dependencies
+// in this case, the mongoose connection
 describe('DishesService', () => {
   let service: DishesService;
   let module: TestingModule;

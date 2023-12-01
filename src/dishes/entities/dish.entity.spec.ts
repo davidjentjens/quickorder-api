@@ -3,6 +3,7 @@ import { Dish, DishSchema } from "./dish.entity"
 
 describe("Dish Tests", () => {
 
+    // Note: Unit Test => Lightweigth, fast, isolated
     describe("Dish Class", () => {
         it("should create a dish", () => {
             const dish = new Dish({
@@ -19,6 +20,8 @@ describe("Dish Tests", () => {
         })
     })
 
+    // Note: Integration Test => Middleweight, slower, involves external dependencies
+    // in this case, the mongoose connection
     describe("Using MongoDB", () => {
         let conn: mongoose.Mongoose
 
