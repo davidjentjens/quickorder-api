@@ -22,10 +22,10 @@ describe("Dish Tests", () => {
     describe("Using MongoDB", () => {
         let conn: mongoose.Mongoose
 
+        const uri = "mongodb://root:root@localhost:27017/dishes_entity_test?authSource=admin"
+
         beforeEach(async () => {
-            conn = await mongoose.connect(
-                "mongodb://root:root@localhost:27017/dishes_test?authSource=admin"
-            )
+            conn = await mongoose.connect(uri)
         })
 
         afterEach(async () => {
@@ -33,10 +33,6 @@ describe("Dish Tests", () => {
         })
 
         it("should create a dish document", async () => {
-            const conn = await mongoose.connect(
-                "mongodb://root:root@localhost:27017/dishes_test?authSource=admin"
-            )
-
             const DishModel = conn.model("Dish", DishSchema)
             const dish = new DishModel({
                 name: "Bolognese Sauce",

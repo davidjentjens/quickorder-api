@@ -1,11 +1,23 @@
 import { Injectable } from '@nestjs/common';
 import { CreateDishDto } from './dto/create-dish.dto';
 import { UpdateDishDto } from './dto/update-dish.dto';
+import { Dish, DishDocument } from './entities/dish.entity';
+import { Model } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
 
 @Injectable()
 export class DishesService {
-  create(createDishDto: CreateDishDto) {
-    return 'This action adds a new dish';
+  constructor(
+    @InjectModel(Dish.name)
+    private dishModel: Model<DishDocument>
+  ) {
+    this.dishModel = dishModel;
+  }
+
+  async create(createDishDto: CreateDishDto) {
+    const dishDoc = new this.dishModel(createDishDto);
+    await dishDoc.save();
+    return dishDoc
   }
 
   findAll() {

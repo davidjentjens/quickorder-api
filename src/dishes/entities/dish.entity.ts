@@ -1,4 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
+
+export type DishDocument = Dish & Document;
 
 export type DishProps = {
     name: string;
