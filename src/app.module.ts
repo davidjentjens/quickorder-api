@@ -3,13 +3,13 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DishesModule } from './dishes/dishes.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { ConfigModule } from '@nestjs/config';
 
 // Note: Database is created if it does not exist
-const uri = "mongodb://root:root@db:27017/dishes?authSource=admin"
-
 @Module({
   imports: [
-    MongooseModule.forRoot(uri),
+    ConfigModule.forRoot(),
+    MongooseModule.forRoot(process.env.MONGO_DSN),
     DishesModule
   ],
   controllers: [AppController],

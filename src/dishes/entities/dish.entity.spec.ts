@@ -22,7 +22,8 @@ describe("Dish Tests", () => {
     describe("Using MongoDB", () => {
         let conn: mongoose.Mongoose
 
-        const uri = "mongodb://root:root@localhost:27017/dishes_entity_test?authSource=admin"
+        const host = "localhost"
+        const uri = `mongodb://root:root@${host}:27017/dishes_entity_test?authSource=admin`
 
         beforeEach(async () => {
             conn = await mongoose.connect(uri)
