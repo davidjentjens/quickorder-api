@@ -21,18 +21,22 @@ export class DishesService {
   }
 
   findAll() {
-    return `This action returns all dishes`;
+    return this.dishModel.find().exec();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} dish`;
+  findOne(id: string) {
+    return this.dishModel.findById(id).exec();
   }
 
-  update(id: number, updateDishDto: UpdateDishDto) {
-    return `This action updates a #${id} dish`;
+  update(id: string, updateDishDto: UpdateDishDto) {
+    return this.dishModel.updateOne({ _id: id }, updateDishDto).exec()
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} dish`;
+  remove(id: string) {
+    return this.dishModel.deleteOne({ _id: id }).exec()
+  }
+
+  async removeAll() {
+    await this.dishModel.deleteMany({}).exec()
   }
 }
