@@ -9,7 +9,7 @@ import { InjectModel } from '@nestjs/mongoose';
 export class DishesService {
   constructor(
     @InjectModel(Dish.name)
-    private dishModel: Model<DishDocument>
+    private dishModel: Model<DishDocument>,
   ) {
     this.dishModel = dishModel;
   }
@@ -17,7 +17,7 @@ export class DishesService {
   async create(createDishDto: CreateDishDto) {
     const dishDoc = new this.dishModel(createDishDto);
     await dishDoc.save();
-    return dishDoc
+    return dishDoc;
   }
 
   findAll() {
@@ -29,14 +29,14 @@ export class DishesService {
   }
 
   update(id: string, updateDishDto: UpdateDishDto) {
-    return this.dishModel.updateOne({ _id: id }, updateDishDto).exec()
+    return this.dishModel.updateOne({ _id: id }, updateDishDto).exec();
   }
 
   remove(id: string) {
-    return this.dishModel.deleteOne({ _id: id }).exec()
+    return this.dishModel.deleteOne({ _id: id }).exec();
   }
 
   async removeAll() {
-    await this.dishModel.deleteMany({}).exec()
+    await this.dishModel.deleteMany({}).exec();
   }
 }

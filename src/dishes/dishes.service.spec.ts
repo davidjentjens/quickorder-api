@@ -14,7 +14,7 @@ describe('DishesService', () => {
     module = await Test.createTestingModule({
       imports: [
         MongooseModule.forRoot(uri),
-        MongooseModule.forFeature([{ name: Dish.name, schema: DishSchema }])
+        MongooseModule.forFeature([{ name: Dish.name, schema: DishSchema }]),
       ],
       providers: [DishesService],
     }).compile();
@@ -24,8 +24,8 @@ describe('DishesService', () => {
 
   afterEach(async () => {
     await service.removeAll();
-    await module.close()
-  })
+    await module.close();
+  });
 
   it('should be defined', () => {
     expect(service).toBeDefined();
@@ -114,7 +114,7 @@ describe('DishesService', () => {
     expect(foundDish.price).toBe(10);
     expect(foundDish.description).toBe('A delicious sauce');
     expect(foundDish.imageUrl).toBe('http://testurl.test');
-  })
+  });
 
   it('should remove a dish', async () => {
     const dish = await service.create({
@@ -128,7 +128,7 @@ describe('DishesService', () => {
 
     const foundDish = await service.findOne(dish._id);
     expect(foundDish).toBeNull();
-  })
+  });
 
   it('should remove all dishes', async () => {
     await service.create({
@@ -149,5 +149,5 @@ describe('DishesService', () => {
 
     const dishes = await service.findAll();
     expect(dishes.length).toBe(0);
-  })
+  });
 });
