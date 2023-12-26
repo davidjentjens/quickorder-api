@@ -27,12 +27,15 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"Orta.vscode-jest",
-				"firsttris.vscode-jest-runner",
-				"esbenp.prettier-vscode",
 				"dbaeumer.vscode-eslint",
-				"ms-azuretools.vscode-docker",
-				"humao.rest-client"
+				"esbenp.prettier-vscode",
+				"ms-vscode.vscode-typescript-tslint-plugin",
+				"msjsdiag.debugger-for-chrome",
+				"msjsdiag.vscode-react-native",
+				"octref.vetur",
+				"PKief.material-icon-theme",
+				"ritwickdey.LiveServer",
+				"vuetifyjs.vuetify-vscode"
 			]
 		}
 	}
