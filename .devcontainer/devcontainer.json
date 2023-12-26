@@ -35,7 +35,8 @@
 				"octref.vetur",
 				"PKief.material-icon-theme",
 				"ritwickdey.LiveServer",
-				"vuetifyjs.vuetify-vscode"
+				"vuetifyjs.vuetify-vscode",
+				"ms-azuretools.vscode-docker"
 			]
 		}
 	}
