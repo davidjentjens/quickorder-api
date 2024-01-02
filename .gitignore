@@ -36,3 +36,4 @@ lerna-debug.log*
 
 # DBData
 .docker/dbdata
+.docker/zsh/history/.zsh_history
