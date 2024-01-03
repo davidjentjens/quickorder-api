@@ -51,7 +51,7 @@ on:
 env:
   PROJECT_ID: quickorder-api-409414 # TODO: update Google Cloud project id
   GAR_LOCATION: southamerica-east1 # TODO: update Artifact Registry location
-  SERVICE: quickorder-api # TODO: update Cloud Run service name
+  SERVICE: quickorder-registry # TODO: update Cloud Run service name
   REGION: southamerica-east1 # TODO: update Cloud Run service region
 
 jobs:
