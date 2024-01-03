@@ -53,6 +53,7 @@ env:
   GAR_LOCATION: southamerica-east1 # TODO: update Artifact Registry location
   SERVICE: quickorder-registry # TODO: update Cloud Run service name
   REGION: southamerica-east1 # TODO: update Cloud Run service region
+  IMAGE_NAME: quickorder-api
 
 jobs:
   deploy:
@@ -88,7 +89,7 @@ jobs:
       - name: Build and Push Container
         run: |-
           docker build -f Dockerfile.prod -t "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}" ./
-          docker push "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}:${{ github.sha }}"
+          docker push "${{ env.GAR_LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.SERVICE }}/${{ env.IMAGE_NAME }}:${{ github.sha }}"
 
       # END - Docker auth and build
 
