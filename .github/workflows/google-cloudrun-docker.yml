@@ -97,6 +97,8 @@ jobs:
         id: deploy
         uses: google-github-actions/deploy-cloudrun@v2
         with:
+          env_vars: |
+            MONGO_DSN=${{ secrets.MONGO_DSN }}
           service: ${{ env.SERVICE }}
           region: ${{ env.REGION }}
           # NOTE: If using a pre-built image, update the image name here
