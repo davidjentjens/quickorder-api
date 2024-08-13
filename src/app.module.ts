@@ -5,6 +5,7 @@ import { DishesModule } from './dishes/dishes.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { join } from 'path';
+import { OrdersModule } from './orders/orders.module';
 
 // Note: Database is created if it does not exist
 @Module({
@@ -17,6 +18,7 @@ import { join } from 'path';
     }),
     MongooseModule.forRoot(process.env.MONGO_DSN),
     DishesModule,
+    OrdersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
